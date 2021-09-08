@@ -23,5 +23,10 @@ namespace Users.Domain.Services
         {
             return await _userRepository.AddUserAsync(user);
         }
+
+        public async Task<bool> UpdateUserAsyn(User user)
+        {
+            return true;
+        }
     }
 }

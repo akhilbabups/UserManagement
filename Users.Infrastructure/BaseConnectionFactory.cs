@@ -17,7 +17,7 @@ namespace Users.Infrastructure
         }
 
         /// <summary>
-        /// Thread safe. Only one collection will be established for the application.
+        /// Thread safe. Only one connection will be established for the application.
         /// </summary>
         private void GetClient()
         {

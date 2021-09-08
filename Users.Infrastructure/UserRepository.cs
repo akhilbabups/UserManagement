@@ -34,5 +34,11 @@ namespace Users.Infrastructure
             return result.ToModel();
         }
 
+        public async Task<User> GetUserById(string id)
+        {
+            var res = await _collection.FindAsync<UserDocument>(x => x.Id == id);
+            var result = await res.FirstOrDefaultAsync();
+            return result.ToModel();
+        }
     }
 }

@@ -8,5 +8,6 @@ namespace Users.Domain.Interfaces.Services
     {
         Task<IEnumerable<User>> GetUsersAsync();
         Task<User> AddUserAsync(User user);
+        Task<bool> UpdateUserAsyn(User user);
     }
 }
