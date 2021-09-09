@@ -1,0 +1,44 @@
+<p class="text-center">User Management</p>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Id</th>
+        <th scope="col">Full Name</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usr of users; let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{usr.id}}</td>
+        <td>{{usr.fullName}}</td>
+        <td><button type="button" class="btn btn-primary" (click)="updateUser(usr)">Edit</button></td>
+      </tr>
+      <tr *ngIf="!isAdding">
+        <th scope="row"></th>
+        <td colspan="3"><button type="button" class="btn btn-primary" (click)="addClick()">Add</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <form #fm="ngForm" (ngSubmit)="submit(fm)" *ngIf="isAdding">
+  <div class="container">
+    <div class="row form-group">
+        <div class="col">
+          <label for="fullName">Full Name</label>
+        </div>
+        <div class="col">
+          <input required ngModel name="fullName" #fullName="ngModel" id="fullName" type="text" class="form-control">
+          <div class="alert alert-danger" *ngIf="fullName.touched && !fullName.valid">Full name is required!</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col">
+            <button class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+  </div>
+  </form>
