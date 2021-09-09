@@ -27,6 +27,14 @@ namespace Users.API
             services.AddControllers();
             services.ConfigureOptions(Configuration);
             services.Binding();
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOriginsUserUI",
+                    opt => opt.WithOrigins("http://localhost:4200")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,6 +46,8 @@ namespace Users.API
             }
 
             app.UseRouting();
+
+            app.UseCors("AllowOriginsUserUI");
 
             app.UseAuthorization();
 
