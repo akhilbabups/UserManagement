@@ -1,7 +1,5 @@
 ﻿using Moq;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Users.Domain.Interfaces.Repository;
 using Users.Domain.Services;
@@ -14,6 +12,7 @@ namespace Users.Test.Service
     {
         private readonly UserService _userService;
         private readonly Mock<IUserRepository> _userRepositoryMock;
+
         public UserServiceTest()
         {
             _userRepositoryMock = new Mock<IUserRepository>();
@@ -37,11 +36,15 @@ namespace Users.Test.Service
         [InlineData(false)]
         public async Task GetUsersAsync_ReturnEmptyList_Test(bool isNull)
         {
-            //Arrange
-            _userRepositoryMock.Setup(m => m.GetUsersAsync()).ReturnsAsync(MockReturnResult.GetMockUsersNullOrEmptyList(isNull));
-            //Act
+            // Arrange
+            _userRepositoryMock
+                .Setup(m => m.GetUsersAsync())
+                .ReturnsAsync(MockReturnResult.GetMockUsersNullOrEmptyList(isNull));
+
+            // Act
             var result = await _userService.GetUsersAsync();
-            //Assert
+
+            // Assert
             if (isNull)
             {
                 Assert.Null(result);

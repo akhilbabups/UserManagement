@@ -6,8 +6,8 @@ import { User } from '../features/models';
   providedIn: 'root'
 })
 export class UserdataService {
-  // private baseUrl="http://localhost:36228";
-  private baseUrl="https://3fc6-103-149-159-67.ngrok.io";
+  private baseUrl="http://localhost:36228";
+  // private baseUrl="https://3fc6-103-149-159-67.ngrok.io";
 
   constructor(private http: HttpClient) { }
 

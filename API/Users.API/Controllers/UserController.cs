@@ -13,6 +13,7 @@ namespace Users.API.Controllers
     {
         private readonly IUserService _userService;
         private readonly ILogger _logger;
+
         public UserController(IUserService userService, ILogger<UserController> logger)
         {
             _userService = userService;
@@ -26,6 +27,13 @@ namespace Users.API.Controllers
             var result = await _userService.GetUsersAsync();
             return Ok(result);
         }
+
+        //[HttpGet]
+        //[Route("users/{userId}")]
+        //public async IActionResult GetUserById(string userId)
+        //{
+        //    _userService.Get
+        //}
 
         [HttpPost]
         [Route("user")]
@@ -53,7 +61,7 @@ namespace Users.API.Controllers
         public async Task<IActionResult> UpdateUserAsync(User user)
         {
             await _userService.UpdateUserAsyn(user);
-            return Ok(); 
+            return Ok();
         }
     }
 }

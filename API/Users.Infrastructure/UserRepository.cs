@@ -15,6 +15,7 @@ namespace Users.Infrastructure
     {
         private static string collectionName = "users";
         private readonly IMongoCollection<UserDocument> _collection;
+
         public UserRepository(IOptions<UsersStorage> options) : base(options)
         {
             _collection = database.GetCollection<UserDocument>(collectionName);
@@ -29,7 +30,7 @@ namespace Users.Infrastructure
 
         public async Task<IEnumerable<User>> GetUsersAsync()
         {
-            var res =  await _collection.FindAsync<UserDocument>(x => true);
+            var res = await _collection.FindAsync<UserDocument>(x => true);
             var result = res.ToList();
             return result.ToModel();
         }

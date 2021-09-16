@@ -8,20 +8,21 @@ namespace Users.Domain.Services
 {
     public class UserService : IUserService
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IUserRepository userRepository;
+
         public UserService(IUserRepository userRepository)
         {
-            _userRepository = userRepository;
+            this.userRepository = userRepository;
         }
 
         public async Task<IEnumerable<User>> GetUsersAsync()
         {
-            return await _userRepository.GetUsersAsync();
+            return await userRepository.GetUsersAsync();
         }
 
         public async Task<User> AddUserAsync(User user)
         {
-            return await _userRepository.AddUserAsync(user);
+            return await userRepository.AddUserAsync(user);
         }
 
         public async Task<bool> UpdateUserAsyn(User user)

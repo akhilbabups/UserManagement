@@ -8,6 +8,7 @@ namespace Users.Infrastructure.Extensions
     public static class DocumentMapper
     {
         #region TO DOCUMENT
+
         public static UserDocument ToDocument(this Users.Domain.Models.User user)
         {
             return new UserDocument
@@ -35,9 +36,11 @@ namespace Users.Infrastructure.Extensions
                 Name = user.Name
             };
         }
+
         #endregion TO DOCUMENT
 
         #region TO MODEL
+
         public static IEnumerable<Users.Domain.Models.User> ToModel(this IEnumerable<UserDocument> users)
         {
             if (users.IsNullOrEmptyCollection())
@@ -78,15 +81,7 @@ namespace Users.Infrastructure.Extensions
                 Name = user.Name
             };
         }
-        #endregion TO MODEL
-        //public static IEnumerable<TM> ToModelCollectiom<TD,TM>(this IEnumerable<TD> collection)
-        //{
-        //    if(collection.IsNullOrEmptyCollection())
-        //    {
-        //        return Enumerable.Empty<TM>();
-        //    }
-        //    return collection.Select(d => d.ToModel<TD>());
 
-        //}
+        #endregion TO MODEL
     }
 }

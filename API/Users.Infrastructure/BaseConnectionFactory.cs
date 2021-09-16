@@ -6,10 +6,11 @@ namespace Users.Infrastructure
 {
     public abstract class BaseConnectionFactory
     {
-        private static IMongoClient _client;
+        private IMongoClient _client;
         internal IMongoDatabase database;
         private readonly UsersStorage _storageConfig;
-        public BaseConnectionFactory(IOptions<UsersStorage> options) 
+
+        public BaseConnectionFactory(IOptions<UsersStorage> options)
         {
             _storageConfig = options.Value;
             GetClient();

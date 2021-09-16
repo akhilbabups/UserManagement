@@ -9,8 +9,10 @@ namespace Users.Infrastructure.MDO
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
+
         [BsonElement("fullName")]
         public string FullName { get; set; }
+
         public IEnumerable<Role> Roles { get; set; }
     }
 

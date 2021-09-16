@@ -7,6 +7,7 @@ namespace Users.Domain.Interfaces.Repository
     public interface IUserRepository
     {
         Task<User> AddUserAsync(User user);
+
         Task<IEnumerable<User>> GetUsersAsync();
     }
 }

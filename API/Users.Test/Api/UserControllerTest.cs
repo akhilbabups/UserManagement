@@ -85,7 +85,7 @@ namespace Users.Test.Api
 
             //Assert
             await Assert.ThrowsAsync<Exception>(async () => await _userController.AddUserAsync(userPayload));
-            
+
             _userServiceMock.Verify(m => m.AddUserAsync(It.IsAny<Domain.Models.User>()), Times.Once);
             _loggerMock.Verify(
                 x => x.Log(

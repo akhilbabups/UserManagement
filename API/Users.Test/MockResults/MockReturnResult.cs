@@ -39,6 +39,7 @@ namespace Users.Test.MockResults
                 }
             };
         }
+
         public static IEnumerable<Domain.Models.User> GetMockUsersNullOrEmptyList(bool isNull)
         {
             return isNull ? null : Enumerable.Empty<Domain.Models.User>();
